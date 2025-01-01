@@ -203,7 +203,7 @@ def demo_remove_watermark(input_video_glob="webvid/*.mp4", device=None):
         fansi_print("Loading video from " + video_path, "green", "bold")
         tic()
         video = load_video(video_path, use_cache=False)
-        video = as_numpy_array(resize_list(video, length=60))
+        video = as_numpy_array(video)  # Do not resize or truncate the video
         
         if device is not None:
             video = torch.tensor(video, device=device)
